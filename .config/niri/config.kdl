@@ -67,7 +67,6 @@ output "HDMI-A-1" {
 layout {
     gaps 14
 
-
     center-focused-column "on-overflow"
     // center-focused-column "never"
     // center-focused-column "always"
@@ -175,38 +174,35 @@ binds {
     Mod+E { spawn "thunar"; }
     Super+Alt+L { spawn "swaylock"; }
 
-    // You can also use a shell:
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+    // Shell scripts execs
     Mod+W { spawn "bash" "-c" "exec ~/.scripts/waybar.sh"; }    
-
-
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    
+    // Audio controls bindings 
+    XF86AudioRaiseVolume { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh raise"; }
+    XF86AudioLowerVolume { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh lower"; }
+    XF86AudioMute { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh mute"; }
+    XF86AudioMicMute { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh micmute"; }
+    XF86MonBrightnessUp { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh brightness_up"; }
+    XF86MonBrightnessDown { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh brightness_down"; }
 
     Mod+Q { close-window; }
 
+    // Move focus between columns
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
 
+    // Move entire column
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
-
+    // Mod+Ctrl+H  { move-column-left; }
+    // Mod+Ctrl+J  { move-window-down; }
+    // Mod+Ctrl+K    { move-window-up; }
+    // Mod+Ctrl+L { move-column-right; }
+  
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
     // Mod+J     { focus-window-or-workspace-down; }
@@ -223,19 +219,19 @@ binds {
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
-
+    // Mod+Shift+H  { focus-monitor-left; }
+    // Mod+Shift+J  { focus-monitor-down; }
+    // Mod+Shift+K    { focus-monitor-up; }
+    // Mod+Shift+L { focus-monitor-right; }
+   
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -263,12 +259,6 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These binds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
@@ -286,23 +276,7 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-
-    // You can refer to workspaces by index. However, keep in mind that
-    // niri is a dynamic workspace system, so these commands are kind of
-    // "best effort". Trying to refer to a workspace index bigger than
-    // the current workspace count will instead refer to the bottommost
-    // (empty) workspace.
-    //
-    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
+    // Focus workspace
     Mod+1 { spawn "~/.scripts/exec_and_signal.sh" "focus-workspace 1"; }
     Mod+2 { spawn "~/.scripts/exec_and_signal.sh" "focus-workspace 2"; }
     Mod+3 { spawn "~/.scripts/exec_and_signal.sh" "focus-workspace 3"; }
@@ -313,6 +287,7 @@ binds {
     Mod+8 {  spawn "~/.scripts/exec_and_signal.sh" "focus-workspace 8"; }
     Mod+9 {  spawn "~/.scripts/exec_and_signal.sh" "focus-workspace 9"; }
 
+    // Move column to workspace
     Mod+Ctrl+1 { spawn "~/.scripts/exec_and_signal.sh" "move-column-to-workspace 1" "focus-workspace 1"; }
     Mod+Ctrl+2 { spawn "~/.scripts/exec_and_signal.sh" "move-column-to-workspace 2" "focus-workspace 2"; }
     Mod+Ctrl+3 { spawn "~/.scripts/exec_and_signal.sh" "move-column-to-workspace 3" "focus-workspace 3"; }
@@ -342,14 +317,6 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
 
-    // Finer width adjustments.
-    // This command can also:
-    // * set width in pixels: "1000"
-    // * adjust width in pixels: "-5" or "+5"
-    // * set width as a percentage of screen width: "25%"
-    // * adjust width as a percentage of screen width: "-10%" or "+10%"
-    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-    // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
@@ -362,8 +329,8 @@ binds {
     // a matching layout switch hotkey configured in xkb options above.
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
+    Mod+Space       { switch-layout "next"; }
+    Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
@@ -376,3 +343,4 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
