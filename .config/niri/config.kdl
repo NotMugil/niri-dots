@@ -101,8 +101,8 @@ layout {
         // off
 
         width 2
-        active-color "#313244FF"
-        inactive-color "#31324433"
+        active-color "#414868FF"
+        inactive-color "#1f2335A3"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
@@ -120,8 +120,9 @@ prefer-no-csd
 
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img ~/Downloads/red.jpg"
+spawn-at-startup "swww img ~/.wallpapers/red.jpeg"
 spawn-at-startup "~/.scripts/swayidle.sh"
+spawn-at-startup "swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
