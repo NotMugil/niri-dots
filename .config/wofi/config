@@ -1,0 +1,22 @@
+# Set the path to the custom style sheet
+style=$HOME/.config/wofi/style.css
+
+
+# Set the width and height of the wofi window
+width=500
+height=500
+
+# Set offset from left and top of the screen
+xoffset=433 # (screen_width - width) / 2
+yoffset=134 # (screen_height - height) / 2
+
+# Specify the mode to show (e.g., drun for application launcher)
+show=drun
+
+# Additional configuration options
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
