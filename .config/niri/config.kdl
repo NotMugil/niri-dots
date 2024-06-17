@@ -166,7 +166,7 @@ window-rule {
 binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
-    // Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+RETURN { spawn "kitty"; }
@@ -185,6 +185,7 @@ binds {
     XF86MonBrightnessUp { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh brightness_up"; }
     XF86MonBrightnessDown { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh brightness_down"; }
 
+    // Close Active window
     Mod+Q { close-window; }
 
     // Move focus between columns
