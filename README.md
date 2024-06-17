@@ -6,7 +6,7 @@
 - **Shell** • zsh
 - **Aur Helper** • [yay](https://github.com/Jguer/yay)
 - **Panel** • [waybar](https://github.com/Alexays/Waybar)
-- **Launcher** • [rofi](https://github.com/davatorium/rofi)
+- **Launcher** • [anyrun](https://github.com/anyrun-org/anyrun)
 - **File Manager** • [thunar](https://wiki.archlinux.org/title/thunar)/[yazi](https://github.com/sxyazi/yazi)
 - **Notification Daemon** • [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 - **Wallpaper Daemon** • [swww](https://github.com/LGFae/swww)
