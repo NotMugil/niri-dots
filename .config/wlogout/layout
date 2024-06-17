@@ -1,0 +1,41 @@
+{
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "",
+    "keybind" : "l"
+}
+
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "",
+    "keybind" : "e"
+}
+
+{
+    "label" : "reboot",
+    "action" : "loginctl reboot",
+    "text" : "",
+    "keybind" : "r"
+}
+
+{
+    "label" : "shutdown",
+    "action" : "loginctl poweroff",
+    "text" : "",
+    "keybind" : "s"
+}
+
+{
+    "label" : "hibernate",
+    "action" : "loginctl hibernate",
+    "text" : "",
+    "keybind" : "h"
+}
+
+{
+    "label" : "suspend",
+    "action" : "loginctl suspend",
+    "text" : "",
+    "keybind" : "u"
+}

@@ -1,0 +1,61 @@
+* {
+	font-size: 16pt;
+	background-image: none;
+}
+window {
+	background-image: url("/home/darrkhan/.config/wlogout/blurred-landscape.png");
+}
+button {
+	color: #FFFFFF;
+	background-color: rgba(34, 33, 44, 0.2);
+	outline-style: none;
+	border: none;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 20%;
+	border-radius: 0px;
+	box-shadow: none;
+	text-shadow: none;
+	animation: gradient_f 20s ease-in infinite;
+}
+
+button:focus {
+	background-color: #3700B3;
+	background-size: 30%;
+}
+
+#lock {
+	border-radius: 50%;
+	margin: 300px 10px 300px 250px;
+	background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+	border-radius: 50%;
+	margin: 300px 10px 300px 10px;
+	background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+	border-radius: 50%;
+	margin: 300px 250px 300px 10px;
+	background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+	border-radius:  50%;
+	margin: 300px 10px 300px 10px;
+	background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+	border-radius: 50%;
+	margin: 300px 10px 300px 10px;
+	background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+	border-radius: 50%;
+	margin: 300px 10px 300px 10px;
+	background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}
