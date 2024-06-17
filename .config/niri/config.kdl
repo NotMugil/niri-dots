@@ -121,6 +121,7 @@ prefer-no-csd
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww img ~/.wallpapers/red.jpeg"
+spawn-at-startup "swayosd-server"
 spawn-at-startup "~/.scripts/swayidle.sh"
 spawn-at-startup "swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css"
 
@@ -176,6 +177,8 @@ binds {
 
     // You can also use a shell:
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+    Mod+W { spawn "bash" "-c" "exec ~/.scripts/waybar.sh"; }    
+
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
