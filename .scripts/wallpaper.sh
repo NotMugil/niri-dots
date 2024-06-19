@@ -1,7 +1,25 @@
 #!/bin/bash
 
-# Directory where your wallpapers are stored
-WALLPAPER_DIR="$HOME/.wallpapers"
+# Function to determine system color scheme
+get_color_scheme() {
+    # Example for GNOME (using gsettings)
+    # Adjust this according to your desktop environment or window manager
+    if gsettings get org.gnome.desktop.interface color-scheme | grep -q 'dark'; then
+        echo "dark"
+    else
+        echo "light"
+    fi
+}
+
+# Determine color scheme
+COLOR_SCHEME=$(get_color_scheme)
+
+# Set wallpapers directory based on color scheme
+if [ "$COLOR_SCHEME" = "dark" ]; then
+    WALLPAPER_DIR="$HOME/.wallpapers/dark"
+else
+    WALLPAPER_DIR="$HOME/.wallpapers/light"
+fi
 
 # List wallpapers in the directory and extract filenames
 wallpapers=()
