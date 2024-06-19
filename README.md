@@ -73,8 +73,8 @@ Install spicetify. (AUR: `spicetify-cli`)
 Copy `niri-dots/.themes/spicetify/text` to `~/.config/spicetify/Themes/` (or wherever your spicetify themes are stored)
 Then:
 ```bash
-spicetify config current_theme text
-spicetify config color_scheme CatppuccinMocha
+spicetify config current_theme Dribbblish
+spicetify config color_scheme catppuccin-latte
 spicetify apply
 ```
 
