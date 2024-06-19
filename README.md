@@ -6,7 +6,7 @@
 - **Shell** • zsh
 - **Aur Helper** • [yay](https://github.com/Jguer/yay)
 - **Panel** • [waybar](https://github.com/Alexays/Waybar)
-- **Launcher** • [rofi](https://github.com/davatorium/rofi)
+- **Launcher** • [anyrun](https://github.com/anyrun-org/anyrun)
 - **File Manager** • [thunar](https://wiki.archlinux.org/title/thunar)/[yazi](https://github.com/sxyazi/yazi)
 - **Notification Daemon** • [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 - **Wallpaper Daemon** • [swww](https://github.com/LGFae/swww)
@@ -22,7 +22,7 @@ Install these dependencies manually (Arch)
 ```shell
 pacman -Sy niri wofi kitty wireplumber yazi zathura zathura-pdf-mupdf cava wl-clipboard \
     waybar swayidle swaylock swaync qt5-wayland qt6-wayland playerctl mpv nm-connection-editor \
-    rofi-wayland grim slurp thunar pipewire pipewire-alsa pipewire-audio \
+    rofi-wayland grim slurp thunar pipewire pipewire-alsa pipewire-audio nushell  \
     pipewire-jack pipewire-pulse nwg-look noto-fonts-cjk noto-fonts-emoji \
     noto-fonts networkmanager gtk-engine-murrine blueberry bluez bluez-utils 
 ```
