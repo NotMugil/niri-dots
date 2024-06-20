@@ -1,56 +1,24 @@
-@define-color cc-bg rgba(0, 0, 0, 1);
-@define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg #24273a;
-@define-color noti-bg-darker #363a4f;
-@define-color noti-bg-hover rgb(27, 27, 43);
-@define-color noti-bg-focus rgba(27, 27, 27, 0.6);
-@define-color noti-close-bg rgba(255, 255, 255, 0.1);
-@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
-@define-color text-color #cad3f5;
-
-@define-color base   #1E1D2E;
-@define-color mantle #181825;
-@define-color crust  #11111b;
-
-@define-color text     #cdd6f4;
-@define-color subtext0 #a6adc8;
-@define-color subtext1 #bac2de;
-
-@define-color surface0 #313244;
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
-
-@define-color overlay0 #6c7086;
-@define-color overlay1 #7f849c;
-@define-color overlay2 #9399b2;
-
-@define-color blue      #89b4fa;
-@define-color lavender  #b4befe;
-@define-color sapphire  #74c7ec;
-@define-color sky       #89dceb;
-@define-color teal      #94e2d5;
-@define-color green     #a6e3a1;
-@define-color yellow    #f9e2af;
-@define-color peach     #fab387;
-@define-color maroon    #eba0ac;
-@define-color red       #f38ba8;
-@define-color mauve     #cba6f7;
-@define-color pink      #f5c2e7;
-@define-color flamingo  #f2cdcd;
-@define-color rosewater #f5e0dc;
-
+/* General styles */
 * {
   all: unset;
   font-size: 12px;
   font-family: "JetBrainsMono Nerd Font Mono";
-  transition: 200ms;
+  transition: 100ms;
 }
 
+/* Widget styles */
 .widget-mpris {
-  background: linear-gradient(to right, #363a4f, rgba(183, 189, 248, 0.3));
-
   padding: 14px;
+  margin: 10px;
   border-radius: 10px;
+  background: linear-gradient(to right, #e6e9ef, rgba(188, 192, 204, 0.3)); /* Mantle */
+}
+
+.widget-mpris > box {
+  padding: 0;
+  margin: 1px;
+  border-radius: 4px;
+  background: rgba(230, 233, 239, 0.2); /* Mantle with opacity */
 }
 
 .widget-mpris-player {
@@ -78,221 +46,154 @@
 .widget-buttons-grid > flowbox > flowboxchild > button {
   margin: 3px;
   padding: 12px;
-  background: #494d64;
+  background: #dc8a78; /* Rosewater */
   border-radius: 6px;
-  color: #cad3f5;
+  color: #e6e9ef; /* Mantle */
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: #6e738d;
+  background: #dd7878; /* Flamingo */
 }
-
 
 /* DND widget */
 .widget-dnd {
-    margin: 8px;
-    font-size: 1.1rem;
+  margin: 8px;
+  font-size: 1.1rem;
 }
+
 .widget-dnd > switch {
-    font-size: initial;
-    border-radius: 4px;
-    background: @base;
-    /* background: @theme_bg_color; */
-    /* border: 1px solid @surface1; */
+  font-size: initial;
+  border-radius: 4px;
+  background: #e6e9ef; /* Mantle */
 }
+
 .widget-dnd > switch:checked {
-    background: @insensitive_base_color;
+  background: #e6e9ef; /* Mantle */
 }
 
 .widget-dnd > switch slider {
-    background: @base;
-    /* background: @theme_bg_color; */
-    border-radius: 12px;
+  background: #e6e9ef; /* Mantle */
+  border-radius: 12px;
 }
 
-
+/* Floating notifications */
 .floating-notifications.background .notification-row .notification-background {
   box-shadow:
     0 0 8px 0 rgba(0, 0, 0, 0.8),
-    inset 0 0 0 1px #363a4f;
+    inset 0 0 0 1px #ccd0da; /* Surface0 */
   border-radius: 10px;
   margin: 18px;
-  background-color: #24273a;
-  color: #cad3f5;
-  border: 2px solid rgba(183, 189, 248, 0.5);
+  background-color: #eff1f5; /* Base */
+  color: #4c4f69; /* Text */
+  border: 2px solid rgba(204, 208, 218, 0.5); /* Surface0 with opacity */
   padding: 0;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification {
+.floating-notifications.background .notification-row .notification-background .notification {
   padding: 7px;
   border-radius: 10px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification.critical {
-  box-shadow: inset 0 0 7px 0 #ed8796;
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+  box-shadow: inset 0 0 7px 0 #d20f39; /* Red */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content {
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
   margin: 7px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .summary {
-  color: #cad3f5;
+.floating-notifications.background .notification-row .notification-background .notification .notification-content .summary {
+  color: #4c4f69; /* Text */
+  padding-left: 12px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .time {
-  color: #a5adcb;
+.floating-notifications.background .notification-row .notification-background .notification .notification-content .time {
+  color: #5c5f77; /* Subtext1 */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .body {
-  color: #cad3f5;
+.floating-notifications.background .notification-row .notification-background .notification .notification-content .body {
+  color: #4c4f69; /* Text */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > * {
+.floating-notifications.background .notification-row .notification-background > *:last-child > * {
   min-height: 1.4em;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action {
+.floating-notifications.background .notification-row .notification-background > *:last-child > * .notification-action {
   border-radius: 7px;
-  color: #cad3f5;
-  background-color: #363a4f;
-  box-shadow: inset 0 0 0 1px #494d64;
+  color: #4c4f69; /* Text */
+  background-color: #7287fd; /* Lavender */
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
   margin: 7px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action:hover {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #363a4f;
-  color: #cad3f5;
+.floating-notifications.background .notification-row .notification-background > *:last-child > * .notification-action:hover {
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
+  background-color: #04a5e5; /* Sky */
+  color: #4c4f69; /* Text */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action:active {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #7dc4e4;
-  color: #cad3f5;
+.floating-notifications.background .notification-row .notification-background > *:last-child > * .notification-action:active {
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
+  background-color: #04a5e5; /* Sky */
+  color: #4c4f69; /* Text */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .close-button {
+.floating-notifications.background .notification-row .notification-background .close-button {
   margin: 7px;
   padding: 2px;
   border-radius: 6.3px;
-  color: #24273a;
-  background-color: #ed8796;
+  color: #d20f39; /* Red */
+  background-color: #e64553; /* Maroon */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .close-button:hover {
-  background-color: #ee99a0;
-  color: #24273a;
+.floating-notifications.background .notification-row .notification-background .close-button:hover {
+  background-color: #e64553; /* Maroon */
+  color: #d20f39; /* Red */
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .close-button:active {
-  background-color: #ed8796;
-  color: #24273a;
+.floating-notifications.background .notification-row .notification-background .close-button:active {
+  background-color: #e64553; /* Maroon */
+  color: #d20f39; /* Red */
 }
 
+/* Control center */
 .control-center {
   box-shadow:
     0 0 12px 0 rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   margin: 12px;
-  background-color: #24273a;
-  color: #cad3f5;
-  border: 2px solid @base;
+  background-color: #eff1f5; /* Base */
+  color: #4c4f69; /* Text */
+  border: 2px solid #e6e9ef; /* Mantle */
   padding: 10px;
 }
 
 .control-center .widget-title {
   margin: 8px;
-  color: #cad3f5;
+  color: #4c4f69; /* Text */
   font-size: 9px;
-}
-
-.button {
-  font-size: 7px;
 }
 
 .control-center .widget-title button {
   border-radius: 7px;
-  color: #cad3f5;
-  background-color: #363a4f;
-  box-shadow: inset 0 0 0 1px #494d64;
+  color: #4c4f69; /* Text */
+  background-color: #ccd0da; /* Surface0 */
+  box-shadow: inset 0 0 0 1px #9ca0b0; /* Overlay0 */
   padding: 8px;
 }
 
-.control-center .widget-title button:hover {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #5b6078;
-  color: #cad3f5;
-}
-
 .control-center .widget-title button:active {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #7dc4e4;
-  color: #24273a;
+  background-color: #dd7878; /* Flamingo */
+  color: #ccd0da; /* Surface0 */
+  box-shadow: inset 0 0 0 1px #e64553; /* Maroon */
 }
 
 .control-center .notification-row .notification-background {
   border-radius: 5px;
-  color: #cad3f5;
-  background-color: #363a4f;
-  box-shadow: inset 0 0 0 1px #494d64;
+  color: #4c4f69; /* Text */
+  background-color: #dce0e8; /* Crust */
+  box-shadow: inset 0 0 0 2px #ccd0da; /* Surface0 */
   margin-top: 10px;
 }
 
@@ -301,152 +202,84 @@
   border-radius: 5px;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.critical {
-  box-shadow: inset 0 0 7px 0 #ed8796;
+.control-center .notification-row .notification-background .notification.critical {
+  box-shadow: inset 0 0 7px 0 #d20f39; /* Red */
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content {
+.control-center .notification-row .notification-background .notification .notification-content {
   margin: 7px;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .summary {
-  color: #cad3f5;
+.control-center .notification-row .notification-background .notification .notification-content .summary {
+  color: #4c4f69; /* Text */
+  padding-left: 12px;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .time {
-  color: #a5adcb;
+.control-center .notification-row .notification-background .notification .notification-content .time {
+  color: #5c5f77; /* Subtext1 */
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .body {
-  color: #cad3f5;
+.control-center .notification-row .notification-background .notification .notification-content .body {
+  color: #4c4f69; /* Text */
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > * {
+.control-center .notification-row .notification-background > *:last-child > * {
   min-height: 3.4em;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action {
+.control-center .notification-row .notification-background > *:last-child > * .notification-action {
   border-radius: 0px;
-  color: #cad3f5;
-  background-color: #494d64;
-  box-shadow: inset 0 0 0 1px #494d64;
+  color: #4c4f69; /* Text */
+  background-color: #7287fd; /* Lavender */
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
   margin: 4px;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action:hover {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #5b6078;
-  color: #cad3f5;
+.control-center .notification-row .notification-background > *:last-child > * .notification-action:hover {
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
+  background-color: #04a5e5; /* Sky */
+  color: #4c4f69; /* Text */
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action:active {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #7dc4e4;
-  color: #cad3f5;
+.control-center .notification-row .notification-background > *:last-child > * .notification-action:active {
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
+  background-color: #04a5e5; /* Sky */
+  color: #4c4f69; /* Text */
 }
 
 .control-center .notification-row .notification-background .close-button {
   margin: 3px;
   padding: 2px;
   border-radius: 6.3px;
-  color: #24273a;
-  background-color: #ee99a0;
+  color: #eff1f5; /* Base */
+  background-color: #e64553; /* Maroon */
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background-color: #ed8796;
-  color: #24273a;
+  background-color: #e64553; /* Maroon */
+  color: #ea76cb; /* Pink */
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .close-button:active {
-  background-color: #ed8796;
-  color: #24273a;
+.control-center .notification-row .notification-background .close-button:active {
+  background-color: #e64553; /* Maroon */
+  color: #d20f39; /* Red */
 }
 
 .control-center .notification-row .notification-background:hover {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #8087a2;
-  color: #cad3f5;
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
+  background-color: #bcc5f7; /* Lavender */
+  color: #4c4f69; /* Text */
 }
 
 .control-center .notification-row .notification-background:active {
-  box-shadow: inset 0 0 0 1px #494d64;
-  background-color: #7dc4e4;
-  color: #cad3f5;
-}
-
-.notification-row
-  .notification-background
-  .notification
-  .notification-default-action
-  .notification-content
-  .image {
-  /* Notification Primary Image */
-  -gtk-icon-effect: none;
-  border-radius: 4px;
-  /* Size in px */
-  margin: 4px;
-  margin-right: 20px;
+  box-shadow: inset 0 0 0 1px #7287fd; /* Lavender */
+  background-color: #04a5e5; /* Sky */
+  color: #4c4f69; /* Text */
 }
 
 /* Mpris widget */
 .widget-mpris {
-    padding: 5px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-}
-.widget-mpris > box {
-    padding: 0px;
-    margin: 1px 1px -12px 1px;
-    padding: 0px;
-    border-radius: 4px;
-    background: alpha(@mantle, 0.2);
+  padding: 5px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }

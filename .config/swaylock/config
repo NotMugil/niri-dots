@@ -1,7 +1,17 @@
 ignore-empty-password
 
+
+clock
+timestr=%R
+datestr=%a, %e of %B
+
+
 font=monospace
 font-size=16
+
+effect-blur=25x4
+#effect-greyscale
+effect-scale=0.3
 
 indicator-radius=64
 indicator-thickness=2
@@ -33,4 +43,4 @@ text-ver-color=74c7ec
 text-wrong-color=f38ba8
 text-caps-lock-color=f5e0dc
 
-image=~/Downloads/red.jpeg
+image=~/.current_wallpaper

@@ -1,33 +1,54 @@
+:root {
+  --bg-col: #f5ede4;   /* Light creamy beige background */
+  --bg-col-light: #f7f1eb;  /* Lighter creamy beige */
+  --border-col: #eba0ac;   /* Soft taupe for borders */
+  --selected-col: #eba0ac;  /* Light peach for selected items */
+  --blue: #385e8a;    /* Soft blue for accents */
+  --fg-col: #7d7365;   /* Darker taupe for text */
+  --fg-col2: #a37751;  /* Caramel brown for highlights */
+  --grey: #a1988c;     /* Light taupe for subtle elements */
+  --text: #7d7365;     /* Dark taupe for text */
+}
+
 window {
-margin: 0px;
-border: 4px solid #414868;
-border-radius: 15px;
-background-color: #24283b;
-font-family: monospace;
-font-size: 12px;
+	margin: 0px;
+	border: 2px solid #eba0ac; /* Border color set to pink */
+	border-radius: 15px;
+	background-color: var(--bg-col);
+	font-family: monospace;
+	font-size: 12px;
+}
+
+#window {
+	border: 4px solid var(--pink); /* Border color set to pink */
 }
 
 #input {
-margin: 15px;
-color: #c0caf5;
-background-color: #24283b;
+	margin: 15px;
+	color: var(--text);
+	background-color: var(--bg-col);
+}
+
+#input:focus {
+	outline: var(--border-col);
+	box-shadow: 0 0 0 2px var(--border-col);
 }
 
 #input image {
-        color: #c0caf5;
+        color: var(--text);
 }
 
 #inner-box {
-border-radius: 15px;
-margin: 15px;
-background-color: #24283b;
+	border-radius: 15px;
+	margin: 15px;
+	background-color: var(--bg-col);
 }
 
 /* Style for outer box */
 #outer-box {
-    margin: 5px; 
+    border: 4px solid var(--pink);
     border-radius: 15px;
-    background-color: #24283b;
+    background-color: var(--bg-col);
 }
 
 /* Style for scroll area */
@@ -40,17 +61,18 @@ background-color: #24283b;
 #text {
     margin: 5px;
     border: none;
-    color: #c0caf5;
+    color: var(--text);
 }
 
 /* Style for selected entry in the entry mode */
 #entry:selected {
-    background-color: #414868;
+    background-color: var(--bg-col);
     font-weight: normal;
 }
 
 /* Style for selected text in the text mode */
 #text:selected {
-    background-color: #414868;
+    background-color: var(--selected-col);
     font-weight: normal;
 }
+

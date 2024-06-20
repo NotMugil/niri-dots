@@ -2,8 +2,9 @@
 
 # Define the paths to your light and dark GTK themes
 waybar_config_dir="$HOME/.config/waybar"
-light_theme="catppuccin-latte-lavender-standard+default"
-dark_theme="catppuccin-mocha-lavender-standard+default"
+light_theme="Orchis-Light-Compact"
+dark_theme="catppuccin-mocha-maroon-standard+default"
+niri_dir="$HOME/.config/niri"
 
 # Function to check and apply the theme
 apply_theme() {
@@ -33,11 +34,15 @@ if [ "$current_theme" == "'$dark_theme'" ]; then
     kitten themes --reload-in=all Catppuccin-Latte
     ln -sf "$waybar_config_dir/themes/light.css" "$waybar_config_dir/style.css"
     ~/.scripts/refresh_waybar.sh
+    ln -sf "$niri_dir/themes/light.kdl" "$niri_dir/config.kdl"
+    swww img ~/.wallpapers/light/fullerene.jpg --transition-type outer
 else
     apply_theme "$dark_theme"
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     kitten themes --reload-in=all Catppuccin-Mocha
     ln -sf "$waybar_config_dir/themes/dark.css" "$waybar_config_dir/style.css"
     ~/.scripts/refresh_waybar.sh
+    ln -sf "$niri_dir/themes/dark.kdl" "$niri_dir/config.kdl"
+    swww img ~/.wallpapers/dark/sevenEleven.jpg --transition-type outer
 fi
 

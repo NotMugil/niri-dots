@@ -15,13 +15,13 @@
   "timeout-low": 5,
   "timeout-critical": 0,
   "fit-to-screen": true,
-  "control-center-width": 350,
+  "control-center-width": 380,
   "control-center-height": 600,
   "notification-window-width": 500,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
   "transition-time": 200,
-  "hide-on-clear": true,
+  "hide-on-clear": false,
   "hide-on-action": true,
   "widgets": ["title","dnd","notifications","mpris","buttons-grid"],
   "widget-config": {
@@ -63,6 +63,11 @@
         {
           "label": "󰏥",
           "command": "systemctl suspend"
+        },
+
+        {
+          "label": "",
+          "command": "obs --startrecording"
         }
       ]
     }

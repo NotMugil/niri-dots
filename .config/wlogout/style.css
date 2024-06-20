@@ -1,8 +1,8 @@
 window {
     font-family: SpaceMonoNerdFont;
     font-size: 14pt;
-    color: #cdd6f4; /* text */
-    background-color: rgba(30, 30, 46, 0.6);
+    color: #eff1f5; /* text */
+    background-color: rgba(140, 143, 161, 0.9);
 }
 
 button {
@@ -10,8 +10,10 @@ button {
     background-position: center;
     background-size: 25%;
     border: none;
+    box-shadow: none;
+    color: #eff1f5;
     background-color: rgba(30, 30, 46, 0);
-    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 
 button:hover {
@@ -19,8 +21,8 @@ button:hover {
 }
 
 button:focus {
-    background-color: #4c4f69;
-    color: #1e1e2e;
+    background-color: #dd7878;
+    color: #eff1f5;
 }
 
 #lock {

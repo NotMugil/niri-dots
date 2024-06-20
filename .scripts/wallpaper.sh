@@ -21,6 +21,7 @@ else
     WALLPAPER_DIR="$HOME/.wallpapers/light"
 fi
 
+
 # List wallpapers in the directory and extract filenames
 wallpapers=()
 while IFS= read -r -d $'\0' file; do
@@ -40,7 +41,7 @@ select_wallpaper() {
     selected_path=$(find "$WALLPAPER_DIR" -type f -name "$selected")
 
     # Change wallpaper using the selected file
-    swww img "$selected_path"
+    swww img "$selected_path" --transition-type any && notify-send "Wallpaper Changed" -i "$selected_path" --app-name=Wallpaper
 
     # Update the .current_wallpaper symbolic link
     ln -sf "$selected_path" "$HOME/.current_wallpaper"

@@ -2,8 +2,8 @@
 
 set -e
 
-active=""
-inactive=""
+active=""
+inactive=""
 
 workspace_str=""
 

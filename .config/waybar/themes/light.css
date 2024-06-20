@@ -61,7 +61,7 @@ box.modules-right > box.horizontal,
     all: unset;
 }
 #custom-workspaces {
-    color: @red;
+    color: @maroon;
     background-color: @mantle;
     margin: 7px 3px; /* Reduced from 10px 5px */
     padding: 0px 16px; /* Reduced from 0px 20px */
@@ -73,17 +73,17 @@ box.modules-right > box.horizontal,
     border-radius: 0px;
 }
 #custom-workspaces > button.empty {
-    color: @red;
+    color: @maroon;
 }
 #custom-workspaces > button.visible {
     color: @overlay0;
 }
 #custom-workspaces > button.active {
-    color: @red;
-    background: alpha(@red, 0.1);
+    color: @maroon;
+    background: alpha(@maroon, 0.1);
 }
 #custom-workspaces > button:hover {
-    background: alpha(@red, 0.2);
+    background: alpha(@maroon, 0.2);
     color: @text;
 }
 
@@ -111,7 +111,7 @@ box.modules-right > box.horizontal,
     margin-right: 7px; /* Reduced from 10px */
 }
 #pulseaudio.bluetooth {
-    color: @red;
+    color: @maroon;
 }
 
 /* Styling brightness and volume and slider */
@@ -176,6 +176,6 @@ tooltip label {
 
 /* Custom Window Styling */
 #custom-window {
-    color: @red;
+    color: @maroon;
     padding: 0px 8px; /* Reduced from 0px 10px */
 }

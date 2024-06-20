@@ -1,5 +1,8 @@
 # Details 
 
+## Features
+
+## Information
 - **Operating System** • [Arch Linux](https://archlinux.org)
 - **Desktop Environment** • [Niri](https://github.com/YaLTeR/niri)
 - **Terminal** • [kitty](https://github.com/kovidgoyal/kitty)
@@ -27,10 +30,10 @@ pacman -Sy niri wofi kitty wireplumber yazi zathura zathura-pdf-mupdf cava wl-cl
     noto-fonts networkmanager gtk-engine-murrine blueberry bluez bluez-utils 
 ```
 ```shell
-yay -S anyrun-git wlogout swaylock-effects swayosd-git swww amberol sway-audio-idle-inhibit-git
+yay -S anyrun-git wlogout swaylock-effects swayosd-git swww amberol sway-audio-idle-inhibit-git catppuccin-gtk-theme-mocha orchis-theme
 ```
 
-## 🧙‍♂️ Setup Config
+## 🧙‍♂️Setup Config
   > [!WARNING]
   > This method requires you to remove your previous configurations. Make sure to backup your previous configs if needed.
 ### Default Method

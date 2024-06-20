@@ -1,7 +1,0 @@
-  // Audio controls bindings
-    XF86AudioRaiseVolume { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh raise"; }
-    XF86AudioLowerVolume { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh lower"; }
-    XF86AudioMute { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh mute"; }
-    XF86AudioMicMute { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh micmute"; }
-    XF86MonBrightnessUp { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh brightness_up"; }
-    XF86MonBrightnessDown { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh brightness_down"; }

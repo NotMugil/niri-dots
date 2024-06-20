@@ -21,16 +21,6 @@ alias tree='eza --icons --tree'
 # Quality of life commands
 alias mkcd='function _mkcd() { mkdir -p "$1" && cd "$1"; }; _mkcd'
 
-# Git aliases
-alias g='git'
-alias ga='git add'
-alias gaa='git add --all'
-alias gb='git branch'
-alias gc='git commit --verbose'
-alias gcam='git commit --all --message'
-alias gd='git diff'
-alias gp='git push'
-
 # Misc aliases
 alias updates='yay -Qu'  # Check system and AUR updates
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"

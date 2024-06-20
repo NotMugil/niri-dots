@@ -100,15 +100,15 @@ layout {
         // off
 
         width 2
-        active-color "#414868FF"
-        inactive-color "#1f2335A3"
+        active-color "#6c6f85FF"
+        inactive-color "#9ca0b0FF"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     struts {
-        // left 64
+	// left 64
         // right 64
         // top 64
         // bottom 64
@@ -176,7 +176,10 @@ binds {
 
     // Shell scripts execs
     Mod+W { spawn "bash" "-c" "exec ~/.scripts/waybar.sh"; }    
-    
+    Mod+Shift+W { spawn "bash" "-c" "exec ~/.scripts/wallpaper.sh"; }
+    Mod+M { spawn "bash" "-c" "exec ~/.scripts/wlogout.sh"; }    
+    Mod+Shift+Z { spawn "bash" "-c" "exec ~/.scripts/toggle.sh"; }    
+
     // Audio controls bindings 
     XF86AudioRaiseVolume { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh raise"; }
     XF86AudioLowerVolume { spawn "bash" "-c" "exec ~/.scripts/swayosd.sh lower"; }
@@ -336,7 +339,6 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
