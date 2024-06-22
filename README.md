@@ -33,7 +33,7 @@ pacman -Sy niri wofi kitty wireplumber yazi zathura zathura-pdf-mupdf cava wl-cl
 yay -S anyrun-git wlogout swaylock-effects swayosd-git swww amberol sway-audio-idle-inhibit-git catppuccin-gtk-theme-mocha orchis-theme
 ```
 
-## 🧙‍♂️Setup Config
+## 🧙‍♂️  Setup Config
   > [!WARNING]
   > This method requires you to remove your previous configurations. Make sure to backup your previous configs if needed.
 ### Default Method
@@ -127,7 +127,7 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 - [ ] Prepare Pull_Request_Template.md
 - [ ] Prepare Contrubuting.md
 
-## ⌨️ Keybinds
+# ⌨️ Keybinds
 
 > [!NOTE]
 > All keybinds can be found in the `~/.config/niri/config.kdl` in binds.
@@ -180,7 +180,10 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 | <kbd>XF86AudioMute</kbd>         | Mutes/unmutes audio.                                                            |
 | <kbd>XF86AudioMicMute</kbd>      | Mutes/unmutes microphone.                                                       |
 
-## ⭐ Star History
+# Credits
 
+## 
+
+## ⭐ Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=NotMugil/niri-dots&type=Date)](https://star-history.com/#NotMugil/niri-dots&Date)
 

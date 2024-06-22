@@ -1,0 +1,6 @@
+spawn-at-startup "waybar"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww img ~/.wallpapers/red.jpeg"
+spawn-at-startup "swayosd-server"
+spawn-at-startup "~/.scripts/swayidle.sh"
+spawn-at-startup "swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css"
