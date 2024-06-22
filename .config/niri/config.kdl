@@ -1,55 +1,3 @@
-// Light Theme
-
-layout {
-    gaps 14
-
-    center-focused-column "on-overflow"
-    // center-focused-column "never"
-    // center-focused-column "always"
-
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-
-        // fixed 1920
-    }
-
-    default-column-width { proportion 0.5; }
-
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
-	
-    focus-ring {
-	off
-
-	width 3
-
-        active-color "#31324400"
-	inactive-color "#31324400"
-
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
-
-    border {
-        // off
-
-        width 2
-        active-color "#6c6f85FF"
-        inactive-color "#9ca0b0FF"
-
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
-
-    struts {
-	// left 64
-        // right 64
-        // top 64
-        // bottom 64
-    }
-}
 // Animation settings.
 
 animations {
@@ -346,10 +294,62 @@ window-rule {
     clip-to-geometry true
     geometry-corner-radius 10
 }
-
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww img ~/.wallpapers/red.jpeg"
 spawn-at-startup "swayosd-server"
 spawn-at-startup "~/.scripts/swayidle.sh"
 spawn-at-startup "swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css"
+// Dark theme
+
+layout {
+    gaps 14
+
+    center-focused-column "on-overflow"
+    // center-focused-column "never"
+    // center-focused-column "always"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+
+        // fixed 1920
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // If you leave the brackets empty, the windows themselves will decide their initial width.
+    // default-column-width {}
+	
+    focus-ring {
+	off
+
+	width 3
+
+        active-color "#31324400"
+	inactive-color "#31324400"
+
+        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    border {
+        // off
+
+        width 2
+        active-color "#313244FF"
+        inactive-color "#1e1e2eFF"
+
+        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    struts {
+	// left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+

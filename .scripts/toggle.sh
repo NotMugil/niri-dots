@@ -29,25 +29,11 @@ switch_waybar_theme() {
     ~/.scripts/refresh_waybar.sh
 }
 
-# Function to switch Niri theme
-switch_niri_theme() {
-    local theme="$1"
-
-    ln -sf "$NIRI_DIR/themes/$theme.kdl" "$NIRI_DIR/config.kdl"
-}
-
 # Function to apply wallpaper
 apply_wallpaper() {
     local wallpaper="$1"
 
     swww img "$wallpaper" --transition-type any
-}
-
-# Function to combine configuration files
-combine_configs() {
-    local theme="$1"
-
-    ~/.scripts/combine_configs.sh "$theme"
 }
 
 # Function to switch theme
@@ -57,14 +43,12 @@ switch_theme() {
     local waybar_theme="$3"
     local wallpaper="$4"
     local kitty_theme="$5"
-    local niri_theme="$6"
 
     apply_gtk_theme "$gtk_theme" "$color_scheme"
     switch_waybar_theme "$waybar_theme"
     switch_niri_theme "$niri_theme"
     apply_wallpaper "$wallpaper"
     kitten themes --reload-in=all "$kitty_theme"
-    combine_configs "$waybar_theme"
 }
 
 # Main logic
@@ -72,6 +56,8 @@ current_theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
 
 if [ "$current_theme" == "'$DARK_THEME'" ]; then
     switch_theme "$LIGHT_THEME" "$LIGHT_COLOR_SCHEME" "light" "$LIGHT_WALLPAPER" "$LIGHT_KITTY_THEME" "light"
+    ~/.scripts/combine_configs.sh light
 else
     switch_theme "$DARK_THEME" "$DARK_COLOR_SCHEME" "dark" "$DARK_WALLPAPER" "$DARK_KITTY_THEME" "dark"
+    ~/.scripts/combine_configs.sh dark
 fi
