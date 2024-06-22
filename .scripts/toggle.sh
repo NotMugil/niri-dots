@@ -1,48 +1,77 @@
 #!/bin/bash
 
-# Define the paths to your light and dark GTK themes
-waybar_config_dir="$HOME/.config/waybar"
-light_theme="Orchis-Light-Compact"
-dark_theme="catppuccin-mocha-maroon-standard+default"
-niri_dir="$HOME/.config/niri"
+# Define constants
+WAYBAR_CONFIG_DIR="$HOME/.config/waybar"
+NIRI_DIR="$HOME/.config/niri"
+LIGHT_THEME="Orchis-Light-Compact"
+DARK_THEME="catppuccin-mocha-maroon-standard+default"
+LIGHT_COLOR_SCHEME="prefer-light"
+DARK_COLOR_SCHEME="prefer-dark"
+LIGHT_WALLPAPER="$HOME/.wallpapers/light/fullerene.jpg"
+DARK_WALLPAPER="$HOME/.wallpapers/dark/sevenEleven.jpg"
+LIGHT_KITTY_THEME="Catppuccin-Latte"
+DARK_KITTY_THEME="Catppuccin-Mocha"
 
-# Function to check and apply the theme
-apply_theme() {
-    current_theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
-    if [ "$current_theme" == "'$1'" ]; then
-        echo "Theme is already set to $1"
-    else
-        echo "Changing theme to $1"
-        gsettings set org.gnome.desktop.interface gtk-theme "$1"
-    fi
+# Function to apply GTK theme and color scheme
+apply_gtk_theme() {
+    local theme="$1"
+    local color_scheme="$2"
 
-    if [ "$1" == "'$light_theme'" ]; then
-        echo "Setting color scheme to prefer-light"
-        gsettings set org.gnome.desktop.interface gtk-theme 'prefer-light'
-    elif [ "$1" == "'$dark_theme'" ]; then
-        echo "Setting color scheme to prefer-dark"
-        gsettings set org.gnome.desktop.interface gtk-theme 'prefer-dark'
-    fi
+    gsettings set org.gnome.desktop.interface gtk-theme "$theme"
+    gsettings set org.gnome.desktop.interface color-scheme "$color_scheme"
 }
 
-# Toggle logic
+# Function to switch Waybar theme
+switch_waybar_theme() {
+    local theme="$1"
+
+    ln -sf "$WAYBAR_CONFIG_DIR/themes/$theme" "$WAYBAR_CONFIG_DIR/style.css"
+    ~/.scripts/refresh_waybar.sh
+}
+
+# Function to switch Niri theme
+switch_niri_theme() {
+    local theme="$1"
+
+    ln -sf "$NIRI_DIR/themes/$theme.kdl" "$NIRI_DIR/config.kdl"
+}
+
+# Function to apply wallpaper
+apply_wallpaper() {
+    local wallpaper="$1"
+
+    swww img "$wallpaper" --transition-type any
+}
+
+# Function to combine configuration files
+combine_configs() {
+    local theme="$1"
+
+    ~/.scripts/combine_configs.sh "$theme"
+}
+
+# Function to switch theme
+switch_theme() {
+    local gtk_theme="$1"
+    local color_scheme="$2"
+    local waybar_theme="$3"
+    local wallpaper="$4"
+    local kitty_theme="$5"
+    local niri_theme="$6"
+
+    apply_gtk_theme "$gtk_theme" "$color_scheme"
+    switch_waybar_theme "$waybar_theme"
+    switch_niri_theme "$niri_theme"
+    apply_wallpaper "$wallpaper"
+    kitten themes --reload-in=all "$kitty_theme"
+    combine_configs "$waybar_theme"
+}
+
+# Main logic
 current_theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
 
-if [ "$current_theme" == "'$dark_theme'" ]; then
-    apply_theme "$light_theme"
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    kitten themes --reload-in=all Catppuccin-Latte
-    ln -sf "$waybar_config_dir/themes/light.css" "$waybar_config_dir/style.css"
-    ~/.scripts/refresh_waybar.sh
-    ln -sf "$niri_dir/themes/light.kdl" "$niri_dir/config.kdl"
-    swww img ~/.wallpapers/light/fullerene.jpg --transition-type outer
+if [ "$current_theme" == "'$DARK_THEME'" ]; then
+    switch_theme "$LIGHT_THEME" "$LIGHT_COLOR_SCHEME" "light" "$LIGHT_WALLPAPER" "$LIGHT_KITTY_THEME" "light"
 else
-    apply_theme "$dark_theme"
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    kitten themes --reload-in=all Catppuccin-Mocha
-    ln -sf "$waybar_config_dir/themes/dark.css" "$waybar_config_dir/style.css"
-    ~/.scripts/refresh_waybar.sh
-    ln -sf "$niri_dir/themes/dark.kdl" "$niri_dir/config.kdl"
-    swww img ~/.wallpapers/dark/sevenEleven.jpg --transition-type outer
+    switch_theme "$DARK_THEME" "$DARK_COLOR_SCHEME" "dark" "$DARK_WALLPAPER" "$DARK_KITTY_THEME" "dark"
 fi
-
